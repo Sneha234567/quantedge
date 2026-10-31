@@ -1,0 +1,15 @@
+# Virtual environments and caches
+venv/
+.venv/
+**/venv/
+**/.venv/
+env/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Private data: never publish user accounts or secrets
+auth.db
+*.db
+.env
+.streamlit/secrets.toml

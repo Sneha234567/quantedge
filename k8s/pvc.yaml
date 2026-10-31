@@ -1,0 +1,11 @@
+# Keeps the user database (accounts and search history) across restarts and redeploys.
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: quantedge-data
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi

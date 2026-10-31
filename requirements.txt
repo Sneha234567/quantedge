@@ -1,0 +1,8 @@
+pandas>=2.2,<3
+numpy>=1.26,<3
+yfinance>=0.2.50
+matplotlib>=3.8
+streamlit>=1.40
+sqlalchemy>=2.0
+passlib==1.7.4
+pytest>=8.2

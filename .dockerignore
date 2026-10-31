@@ -1,0 +1,11 @@
+.git
+.venv
+**/.venv
+**/__pycache__
+*.pyc
+*.db
+.env
+tools
+Jenkinsfile
+k8s
+test_smoke.py

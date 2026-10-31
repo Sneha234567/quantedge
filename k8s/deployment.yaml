@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quantedge
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate          # one pod at a time, so the SQLite file is never shared
+  selector:
+    matchLabels:
+      app: quantedge
+  template:
+    metadata:
+      labels:
+        app: quantedge
+    spec:
+      containers:
+        - name: quantedge
+          image: IMAGE_PLACEHOLDER
+          ports:
+            - containerPort: 8501
+          resources:
+            requests:
+              memory: "256Mi"
+            limits:
+              memory: "1Gi"
+          volumeMounts:
+            - name: data
+              mountPath: /data
+          readinessProbe:
+            httpGet:
+              path: /_stcore/health
+              port: 8501
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 12
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: quantedge-data
