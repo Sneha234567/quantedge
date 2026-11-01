@@ -140,7 +140,7 @@ def main() -> None:
 
     top_left, top_right = st.columns([1, 4])
     with top_left:
-        st.title("QuantEdge")
+        st.title("QuantEdge Pro")
         if st.session_state.get("auth"):
             if st.button("Searches", use_container_width=True):
                 st.session_state["show_searches"] = True
